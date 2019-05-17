@@ -1,11 +1,13 @@
 @import "~antd/dist/antd.css";
 .App {
   text-align: center;
-  background-color: #e8eaf6;
 }
 .App .titleRow {
   background-color: #3f51b5;
 }
 .App .titleText {
   color: #ffffff;
+}
+.App .searchBar {
+  padding-top: 2em;
 }
