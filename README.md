@@ -1,3 +1,7 @@
+# Meteorite Explorer App
+
+#### `Solo project as part of Chingu Voyage 9 Prework`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
