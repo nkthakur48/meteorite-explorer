@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "antd";
+import { Table, Skeleton } from "antd";
 
 class ResultTable extends Component {
   constructor(props) {
@@ -33,13 +33,15 @@ class ResultTable extends Component {
   }
 
   render() {
-    return (
+    return this.props.isDataLoaded ? (
       <Table
         className="resultsTable"
         columns={this.columns}
         dataSource={this.props.searchResults}
         rowKey={row => row.id}
       />
+    ) : (
+      <Skeleton active />
     );
   }
 }

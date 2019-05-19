@@ -12,7 +12,8 @@ class App extends Component {
     super(props);
     this.state = {
       searchResults: [],
-      searchTerm: ""
+      searchTerm: "",
+      isDataLoaded: false
     };
     this.allSearchResults = [];
   }
@@ -25,7 +26,10 @@ class App extends Component {
   componentDidMount() {
     axios.get(CONSTANTS.NASA_API).then(res => {
       this.allSearchResults = res.data;
-      this.setState({ searchResults: this.allSearchResults });
+      this.setState({
+        searchResults: this.allSearchResults,
+        isDataLoaded: true
+      });
     });
   }
 
@@ -37,6 +41,7 @@ class App extends Component {
       return { searchResults: matchedResults };
     });
   };
+
   render() {
     return (
       <div className="App">
@@ -52,7 +57,10 @@ class App extends Component {
         </Row>
         <Row>
           <Col lg={{ span: 22, offset: 1 }}>
-            <ResultTable searchResults={this.state.searchResults} />
+            <ResultTable
+              searchResults={this.state.searchResults}
+              isDataLoaded={this.state.isDataLoaded}
+            />
           </Col>
         </Row>
       </div>
