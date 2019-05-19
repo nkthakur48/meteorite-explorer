@@ -14,4 +14,11 @@
 .App .resultsTable {
   margin-top: 2em;
   background-color: #ffffff;
+  overflow-x: scroll;
+}
+.App .ant-table-pagination {
+  padding: 2em;
+}
+.App .ant-table-thead tr {
+  background-color: #9fa8da;
 }

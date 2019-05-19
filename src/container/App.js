@@ -19,6 +19,7 @@ class App extends Component {
 
   onSearchHandler = searchTerm => {
     this.setState({ searchTerm: searchTerm });
+    this.updateSearchResults(searchTerm);
   };
 
   componentDidMount() {
@@ -27,6 +28,15 @@ class App extends Component {
       this.setState({ searchResults: this.allSearchResults });
     });
   }
+
+  updateSearchResults = searchTerm => {
+    this.setState(() => {
+      const matchedResults = this.allSearchResults.filter(row => {
+        return row.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+      });
+      return { searchResults: matchedResults };
+    });
+  };
   render() {
     return (
       <div className="App">

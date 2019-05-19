@@ -11,7 +11,18 @@ class ResultTable extends Component {
       { title: "RecClass", dataIndex: "recclass", key: "recclass" },
       { title: "Mass (g)", dataIndex: "mass", key: "mass" },
       { title: "Fall", dataIndex: "fall", key: "fall" },
-      { title: "Year", dataIndex: "year", key: "year" },
+      {
+        title: "Year",
+        dataIndex: "year",
+        key: "year",
+        render: text => {
+          return text && text.match(/^\d{4}/) ? (
+            <span>{text.match(/^\d{4}/)[0]}</span>
+          ) : (
+            <span>&nbsp;</span>
+          );
+        }
+      },
       { title: "Latitude", dataIndex: "geolocation.latitude", key: "latitude" },
       {
         title: "Longitude",
