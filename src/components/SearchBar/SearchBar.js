@@ -2,17 +2,14 @@ import React, { Component } from "react";
 import { Input } from "antd";
 
 class SearchBar extends Component {
-  state = {
-    searchTerm: ""
-  };
   render() {
     return (
       <Input.Search
         className="searchBar"
-        placeholder="input search text"
+        placeholder="Enter Search Terms"
         enterButton="Search"
         size="large"
-        onSearch={value => console.log(value)}
+        onSearch={value => this.props.onSearchHandler(value)}
       />
     );
   }
